@@ -1,0 +1,11 @@
+#!/bin/sh
+## start ActiveMQ
+RUNPATH=/data/kplusaddon/FFC/config/
+RUNPATHFFC=/data/kplusaddon/FFC/Release/etc
+
+
+for file in WSPaymentService
+do
+	cd ${RUNPATHFFC}
+	./mch.sh start ${RUNPATH}$file 
+done

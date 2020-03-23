@@ -1,0 +1,2 @@
+EventTime	EventType	Source	MessageId	Sequence	Component	Status	FlowEnd	FileName	FileTimestamp
+7592758709218213	QUEUED	FilePollerBidvSource	FilePollerBidvSource_1700a221e97_58	1	sftpBidvDestinationQueue	PROCESSING	false	TTDP_IN_030220_9999031932.txt	20200203_151933

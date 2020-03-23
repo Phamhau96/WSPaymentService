@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3d54b833-3477-4b18-8fc1-0de002ae825b" activeEnvironment="Default" name="WSHelloService" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c3049662-dcf4-4f71-adcb-3e022aeaeecc" wsaVersion="NONE" name="Hello_Binding" type="wsdl" bindingName="{HelloService.wsdl}Hello_Binding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/sbednarc/Documents/intellij/projects/sources/mch/dist/dev/szymon/MGOE-1519/WSHelloService/HelloService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/sbednarc/Documents/intellij/projects/sources/mch/dist/dev/szymon/MGOE-1519/WSHelloService/HelloService.wsdl"><con:part><con:url>file:/C:/Users/sbednarc/Documents/intellij/projects/sources/mch/dist/dev/szymon/MGOE-1519/WSHelloService/HelloService.wsdl</con:url><con:content><![CDATA[<definitions name="HelloService" targetNamespace="HelloService.wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:com="HelloService.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="HelloService.wsdl" xmlns="HelloService.wsdl">
+      <xsd:element name="helloInput" type="com:helloInputType"/>
+      <xsd:element name="helloResponse" type="com:helloResponseType"/>
+      <xsd:element name="helloOutput" type="com:helloOutputType"/>
+      <xsd:complexType name="helloInputType">
+        <xsd:sequence>
+          <xsd:element name="firstName" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="helloResponseType">
+        <xsd:sequence>
+          <xsd:element name="helloOutput" type="com:helloOutputType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="helloOutputType">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="helloMsg">
+    <wsdl:part name="helloInput" element="com:helloInput"/>
+  </wsdl:message>
+  <wsdl:message name="helloResponseMsg">
+    <wsdl:part name="parameters" element="com:helloResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Hello_PortType">
+    <wsdl:operation name="hello">
+      <wsdl:input message="com:helloMsg"/>
+      <wsdl:output message="com:helloResponseMsg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Hello_Binding" type="com:Hello_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="hello">
+      <soap:operation soapAction="hello"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="HelloService.wsdl"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="HelloService.wsdl"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Hello_Service">
+    <wsdl:documentation>WSDL File for HelloService</wsdl:documentation>
+    <wsdl:port binding="com:Hello_Binding" name="Hello_Port">
+      <soap:address location="https://localhost:8839/test/hello-service/"/>
+    </wsdl:port>
+  </wsdl:service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8839/hello/</con:endpoint><con:endpoint>http://localhost:8839/test/hello-service/</con:endpoint><con:endpoint>https://localhost:8839/test/hello-service/</con:endpoint></con:endpoints><con:operation id="5427307f-abfc-4533-951e-8456461c1c89" isOneWay="false" action="hello" name="hello" bindingOperationName="hello" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1bd29e27-7018-4620-85e7-8d0bf7f8a4b7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:8839/test/hello-service/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hel="HelloService.wsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <hel:helloInput>\r
+         <firstName>?</firstName>\r
+      </hel:helloInput>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>kgr</con:username><con:password>password</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>false</con:preemptive><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="hello"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

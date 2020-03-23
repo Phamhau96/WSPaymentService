@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="PaymentsWS" 
+targetNamespace="PaymentsWS.wsdl"
+xmlns:tns="PaymentsWS.wsdl"
+xmlns="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" 
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<types>
+		<xsd:schema targetNamespace="PaymentsWS.wsdl" xmlns:tns="PaymentsWS.wsdl">
+			
+			<xsd:element name="SWIFTMsgContent">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="MessageID" type="xsd:string" />
+						<xsd:element name="SWIFTContent" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			<xsd:element name="CITADMsgContent">
+			<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="MessageID" type="xsd:string" />
+						<xsd:element name="CITADContent" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			<xsd:element name="VCBMsgContent">
+			<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="MessageID" type="xsd:string" />
+						<xsd:element name="VCBContent" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			<xsd:element name="BIDVMsgContent">
+			<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="MessageID" type="xsd:string" />
+						<xsd:element name="BIDVContent" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			<xsd:element name="VIETINMsgContent">
+			<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="MessageID" type="xsd:string" />
+						<xsd:element name="VIETINContent" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			<xsd:element name="CASAMsgContent">
+			<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="MessageID" type="xsd:string" />
+						<xsd:element name="CASAContent" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			<xsd:element name="PaymentsMsgReply" type="xsd:string"/>
+	
+		</xsd:schema>
+	</types>
+	<message name="PaymentsSWIFT_Request">
+			<part name="SWIFTMsgContent" element="tns:SWIFTMsgContent"/>
+	</message>
+	<message name="PaymentsCITAD_Request">
+		<part name="CITADMsgContent" element="tns:CITADMsgContent"/>
+	</message>
+	<message name="PaymentsVCB_Request">
+		<part name="VCBMsgContent" element="tns:VCBMsgContent"/>
+	</message>
+	<message name="PaymentsBIDV_Request">
+		<part name="BIDVMsgContent" element="tns:BIDVMsgContent"/>
+	</message>
+	<message name="PaymentsVIETIN_Request">
+		<part name="VIETINMsgContent" element="tns:VIETINMsgContent"/>
+	</message>
+	<message name="PaymentsCASA_Request">
+		<part name="CASAMsgContent" element="tns:CASAMsgContent"/>
+	</message>
+	<message name="PaymentsReply">
+		<part name="status" element="tns:PaymentsMsgReply"/>
+	</message>
+	
+	<portType name="PaymentsWS_PortType">
+		<operation name="PaymentsSWIFT">
+			<input name="importMessage" message="tns:PaymentsSWIFT_Request"/>
+			<output name="statusMessage" message="tns:PaymentsReply"/>
+		</operation>
+		<operation name="PaymentsCITAD">
+			<input name="importMessage" message="tns:PaymentsCITAD_Request"/>
+			<output name="statusMessage" message="tns:PaymentsReply"/>
+		</operation>
+		<operation name="PaymentsVCB">
+			<input name="importMessage" message="tns:PaymentsVCB_Request"/>
+			<output name="statusMessage" message="tns:PaymentsReply"/>
+		</operation>
+		<operation name="PaymentsBIDV">
+			<input name="importMessage" message="tns:PaymentsBIDV_Request"/>
+			<output name="statusMessage" message="tns:PaymentsReply"/>
+		</operation>
+		<operation name="PaymentsVIETIN">
+			<input name="importMessage" message="tns:PaymentsVIETIN_Request"/>
+			<output name="statusMessage" message="tns:PaymentsReply"/>
+		</operation>
+		<operation name="PaymentsCASA">
+			<input name="importMessage" message="tns:PaymentsCASA_Request"/>
+			<output name="statusMessage" message="tns:PaymentsReply"/>
+		</operation>
+	</portType>
+	
+	<binding name="PaymentsWS_PortTypeBinding" type="tns:PaymentsWS_PortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="PaymentsSWIFT">
+			<soap:operation/>
+			<input name="importMessage">
+				<soap:body use="literal"/>
+			</input>
+			<output name="statusMessage">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="PaymentsCITAD">
+			<soap:operation/>
+			<input name="importMessage">
+				<soap:body use="literal"/>
+			</input>
+			<output name="statusMessage">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="PaymentsVCB">
+			<soap:operation/>
+			<input name="importMessage">
+				<soap:body use="literal"/>
+			</input>
+			<output name="statusMessage">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="PaymentsBIDV">
+			<soap:operation/>
+			<input name="importMessage">
+				<soap:body use="literal"/>
+			</input>
+			<output name="statusMessage">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="PaymentsVIETIN">
+			<soap:operation/>
+			<input name="importMessage">
+				<soap:body use="literal"/>
+			</input>
+			<output name="statusMessage">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="PaymentsCASA">
+			<soap:operation/>
+			<input name="importMessage">
+				<soap:body use="literal"/>
+			</input>
+			<output name="statusMessage">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	
+	<service name="PaymentsWS_Service">
+		<port name="PaymentsWS_Port" binding="tns:PaymentsWS_PortTypeBinding">
+			<soap:address location="http://0.0.0.0:51086/ffc/PaymentsWS"/>
+		</port>
+	</service>
+	<plnk:partnerLinkType name="PaymentsWS">
+	<plnk:role name="PaymentsWS_PortTypeRole" portType="tns:PaymentsWS_PortType"/>
+	</plnk:partnerLinkType>
+</definitions>

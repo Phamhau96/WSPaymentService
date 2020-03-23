@@ -1,0 +1,80 @@
+digraph abstract {
+node [shape=ellipse,fontcolor=black,style=filled,color=palegreen];PaymentServiceQueue;VcbMessageEventLogQueue;SwiftMessageEventLogQueue;CitadServiceQueue;VietinServiceQueue;sftpVcbReadQueue;sftpSwiftReadQueue;errorLogQueue;VietinMessageEventLogQueue;VcbWriteMessageLogQueue;BidvServiceQueue;SwiftWriteMessageLogQueue;VcbServiceQueue;wsPaymentSourceAckQueue;sftpVietinDestinationQueue;VietinWriteMessageLogQueue;sftpSwiftDestinationQueue;SwiftServiceQueue;BidvMessageEventLogQueue;CasaServiceQueue;sftpBidvDestinationQueue;sftpVcbDestinationQueue;BidvWriteMessageLogQueue
+node [shape=ellipse,fontcolor=black,style=filled,color=gray75]
+node [shape=invhouse,style=filled,color=green4];PaymentWsSource;FilePollerSwiftSource;BidvMessageEventSource;VietinMessageEventSource;FilePollerBidvSource;SwiftMessageEventSource;FilePollerVcbSource;FilePollerVietinSource;VcbMessageEventSource
+node [shape=rect,style=filled,color=orange1];VCBProcessor2;CASAProcessor;VcbMessageEventLog;SWIFTProcessor2;SwiftMessageEventLog;OperationRouterProcessor;VietinMessageEventLog;VIETINProcessor;SWIFTProcessor;VCBProcessor;BIDVProcessor;CITADProcessor;BidvMessageEventLog
+node [shape=house,style=filled,color=dodgerblue];SftpSwiftDestination;VietinWriteMessageLog;BidvWriteMessageLog;SiwftWriteMessageLog;VcbWriteMessageLog;SftpBidvDestination;SftpVcbDestination;SftpVietinDestination;ErrorLog
+node [shape=folder,style=filled,color=wheat];WsdlResource;HttpResource;PropertiesResource
+CASAProcessor->PropertiesResource [dir=none,constraint=false,color=purple,style=dotted];
+CITADProcessor->PropertiesResource [dir=none,constraint=false,color=purple,style=dotted];
+PaymentWsSource->WsdlResource [dir=none,constraint=false,color=purple,style=dotted];
+PaymentWsSource->HttpResource [dir=none,constraint=false,color=purple,style=dotted];
+PaymentWsSource->PaymentServiceQueue;
+PaymentWsSource->errorLogQueue [color=red];
+wsPaymentSourceAckQueue->PaymentWsSource [constraint=false,arrowhead=empty,color=blue,style=dashed];
+FilePollerSwiftSource->sftpSwiftReadQueue;
+FilePollerSwiftSource->errorLogQueue [color=red];
+BidvMessageEventSource->BidvMessageEventLogQueue;
+VietinMessageEventSource->VietinMessageEventLogQueue;
+FilePollerBidvSource->sftpBidvDestinationQueue;
+FilePollerBidvSource->errorLogQueue [color=red];
+SwiftMessageEventSource->SwiftMessageEventLogQueue;
+FilePollerVcbSource->sftpVcbReadQueue;
+FilePollerVcbSource->errorLogQueue [color=red];
+FilePollerVietinSource->sftpVietinDestinationQueue;
+FilePollerVietinSource->errorLogQueue [color=red];
+VcbMessageEventSource->VcbMessageEventLogQueue;
+sftpVcbReadQueue->VCBProcessor2;
+VCBProcessor2->sftpVcbDestinationQueue;
+VCBProcessor2->errorLogQueue [color=red];
+CasaServiceQueue->CASAProcessor;
+CASAProcessor->wsPaymentSourceAckQueue;
+CASAProcessor->errorLogQueue [color=red];
+VcbMessageEventLogQueue->VcbMessageEventLog;
+VcbMessageEventLog->VcbWriteMessageLogQueue;
+VcbMessageEventLog->errorLogQueue [color=red];
+sftpSwiftReadQueue->SWIFTProcessor2;
+SWIFTProcessor2->sftpSwiftDestinationQueue;
+SWIFTProcessor2->errorLogQueue [color=red];
+SwiftMessageEventLogQueue->SwiftMessageEventLog;
+SwiftMessageEventLog->SwiftWriteMessageLogQueue;
+SwiftMessageEventLog->errorLogQueue [color=red];
+PaymentServiceQueue->OperationRouterProcessor;
+OperationRouterProcessor->SwiftServiceQueue;
+OperationRouterProcessor->CitadServiceQueue;
+OperationRouterProcessor->CasaServiceQueue;
+OperationRouterProcessor->VcbServiceQueue;
+OperationRouterProcessor->BidvServiceQueue;
+OperationRouterProcessor->VietinServiceQueue;
+VietinMessageEventLogQueue->VietinMessageEventLog;
+VietinMessageEventLog->VietinWriteMessageLogQueue;
+VietinMessageEventLog->errorLogQueue [color=red];
+VietinServiceQueue->VIETINProcessor;
+VIETINProcessor->wsPaymentSourceAckQueue;
+VIETINProcessor->errorLogQueue [color=red];
+SwiftServiceQueue->SWIFTProcessor;
+SWIFTProcessor->wsPaymentSourceAckQueue;
+SWIFTProcessor->errorLogQueue [color=red];
+VcbServiceQueue->VCBProcessor;
+VCBProcessor->wsPaymentSourceAckQueue;
+VCBProcessor->errorLogQueue [color=red];
+BidvServiceQueue->BIDVProcessor;
+BIDVProcessor->wsPaymentSourceAckQueue;
+BIDVProcessor->errorLogQueue [color=red];
+CitadServiceQueue->CITADProcessor;
+CITADProcessor->wsPaymentSourceAckQueue;
+CITADProcessor->errorLogQueue [color=red];
+BidvMessageEventLogQueue->BidvMessageEventLog;
+BidvMessageEventLog->BidvWriteMessageLogQueue;
+BidvMessageEventLog->errorLogQueue [color=red];
+sftpSwiftDestinationQueue->SftpSwiftDestination;
+VietinWriteMessageLogQueue->VietinWriteMessageLog;
+BidvWriteMessageLogQueue->BidvWriteMessageLog;
+SwiftWriteMessageLogQueue->SiwftWriteMessageLog;
+VcbWriteMessageLogQueue->VcbWriteMessageLog;
+sftpBidvDestinationQueue->SftpBidvDestination;
+sftpVcbDestinationQueue->SftpVcbDestination;
+sftpVietinDestinationQueue->SftpVietinDestination;
+errorLogQueue->ErrorLog;
+ErrorLog->wsPaymentSourceAckQueue [constraint=false,arrowhead=empty,color=blue,style=dashed];
+}

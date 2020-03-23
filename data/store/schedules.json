@@ -1,0 +1,4 @@
+do-single-run1
+* 4-22 * * Mon-Fri
+com.misys.tools.integration.service.message.requests.SingleRunServerComponent
+{     "name" : "PaymentWsSource", "instanceId" : "WSPaymentService" }

@@ -1,0 +1,3 @@
+EventTime	EventType	Source	MessageId	Sequence	Component	Status	FlowEnd	FileName	FileTimestamp
+1832457898094446	QUEUED	FilePollerSwiftSource	FilePollerSwiftSource_17106718d4a_10f	3	sftpSwiftDestinationQueue	PROCESSING	false	SWF_MSG241317.rje	20200323_151037
+1832457900811070	QUEUED	FilePollerSwiftSource	FilePollerSwiftSource_17106718d4a_10f	4	sftpSwiftDestinationQueue	SENT	true	SWF_MSG241317.rje	20200323_151037

@@ -1,0 +1,2 @@
+EventTime	EventType	Source	MessageId	Sequence	Component	Status	FlowEnd	FileName	FileTimestamp
+7592490618558650	QUEUED	FilePollerVietinSource	FilePollerVietinSource_1700a1e075c_4f	1	sftpVietinDestinationQueue	PROCESSING	false	VIETIN_MSG86316.txt	20200203_151505

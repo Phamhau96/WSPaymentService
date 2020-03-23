@@ -1,0 +1,3 @@
+EventTime	EventType	Source	MessageId	Sequence	Component	Status	FlowEnd	FileName	FileTimestamp
+20204585926134850	QUEUED	FilePollerVcbSource	FilePollerVcbSource_16e3551c937_143	3	sftpVcbDestinationQueue	PROCESSING	false	VCB_MSG21004	20191104_142942
+20204585929098080	QUEUED	FilePollerVcbSource	FilePollerVcbSource_16e3551c937_143	4	sftpVcbDestinationQueue	SENT	true	VCB_MSG21004	20191104_142942
